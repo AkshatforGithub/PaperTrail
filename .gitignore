@@ -1,0 +1,22 @@
+# Secrets
+.env
+
+# Data (keep the small eval set in evaluation/datasets/ tracked)
+data/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+*.egg-info/
+dist/
+.pytest_cache/
+.ruff_cache/
+
+# Notebooks
+.ipynb_checkpoints/
+
+# OS / editor
+.DS_Store
+.vscode/
+.idea/
