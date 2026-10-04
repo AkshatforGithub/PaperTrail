@@ -23,7 +23,9 @@ def main() -> None:
     args = parser.parse_args()
 
     with psycopg.connect(get_settings().database_url) as conn:
-        ids = [r[0] for r in conn.execute("SELECT arxiv_id FROM papers ORDER BY arxiv_id")]
+        ids = [
+            r[0] for r in conn.execute("SELECT arxiv_id FROM papers ORDER BY arxiv_id")
+        ]
     print(f"{len(ids)} papers already in DB")
 
     client = arxiv.Client(page_size=100, delay_seconds=3, num_retries=3)
