@@ -43,8 +43,10 @@ def run(query: str, max_results: int, reingest: bool = False) -> None:
     for i, paper in enumerate(todo, 1):
         try:
             n = ingest_paper(paper)
-            print(f"[{i}/{len(todo)}] {paper.arxiv_id}: {n} chunks | {paper.title[:60]}")
-        except Exception as exc:  # keep going if one paper fails
+            print(
+                f"[{i}/{len(todo)}] {paper.arxiv_id}: {n} chunks | {paper.title[:60]}"
+            )
+        except Exception as exc:  # noqa: BLE001 - keep going if one paper fails
             failed += 1
             print(f"[{i}/{len(todo)}] {paper.arxiv_id}: FAILED ({exc})")
 
@@ -56,6 +58,8 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Ingest arXiv papers into PaperTrail")
     parser.add_argument("--query", default=DEFAULT_QUERY, help="arXiv search query")
     parser.add_argument("--max-results", type=int, default=20)
-    parser.add_argument("--reingest", action="store_true", help="re-chunk papers already stored")
+    parser.add_argument(
+        "--reingest", action="store_true", help="re-chunk papers already stored"
+    )
     args = parser.parse_args()
     run(args.query, args.max_results, args.reingest)

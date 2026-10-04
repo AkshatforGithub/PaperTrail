@@ -1,9 +1,9 @@
 from __future__ import annotations
 
+from collections.abc import Sequence
 from dataclasses import asdict, dataclass
 from datetime import datetime
 from pathlib import Path
-from typing import Sequence
 
 import psycopg
 from pgvector import Vector
@@ -75,7 +75,9 @@ def upsert_paper(conn: psycopg.Connection, paper: Paper) -> None:
     )
 
 
-def replace_chunks(conn: psycopg.Connection, arxiv_id: str, chunks: list[Chunk]) -> None:
+def replace_chunks(
+    conn: psycopg.Connection, arxiv_id: str, chunks: list[Chunk]
+) -> None:
     """Delete a paper's existing chunks and insert the new ones.
 
     Replacing (not appending) makes re-ingestion with different chunk

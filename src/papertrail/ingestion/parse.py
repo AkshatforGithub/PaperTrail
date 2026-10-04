@@ -7,13 +7,30 @@ from pathlib import Path
 import pymupdf
 
 KNOWN_HEADINGS = {
-    "abstract", "introduction", "related work", "background", "method",
-    "methods", "methodology", "approach", "experiments", "experimental setup",
-    "results", "discussion", "conclusion", "conclusions", "limitations",
-    "acknowledgements", "acknowledgments", "references", "bibliography",
+    "abstract",
+    "introduction",
+    "related work",
+    "background",
+    "method",
+    "methods",
+    "methodology",
+    "approach",
+    "experiments",
+    "experimental setup",
+    "results",
+    "discussion",
+    "conclusion",
+    "conclusions",
+    "limitations",
+    "acknowledgements",
+    "acknowledgments",
+    "references",
+    "bibliography",
 }
 STOP_HEADINGS = {"references", "bibliography"}
-NUMBERED = re.compile(r"^(\d{1,2}(?:\.\d{1,2}){0,2})\.?\s+([A-Z][A-Za-z0-9 ,:;\-&()/']{2,80})$")
+NUMBERED = re.compile(
+    r"^(\d{1,2}(?:\.\d{1,2}){0,2})\.?\s+([A-Z][A-Za-z0-9 ,:;\-&()/']{2,80})$"
+)
 
 
 @dataclass
@@ -32,10 +49,11 @@ def _heading_title(line: str) -> str:
     m = NUMBERED.match(line)
     return m.group(2).strip() if m else line.title()
 
+
 def _extract_lines(path: Path) -> list[str]:
     with pymupdf.open(path) as doc:
         raw = "\n".join(page.get_text("text") for page in doc)
-    raw = raw.replace("\x00", "") 
+    raw = raw.replace("\x00", "")
     raw = re.sub(r"(\w)-\n(\w)", r"\1\2", raw)  # rejoin words hyphenated across lines
     lines = [ln.strip() for ln in raw.splitlines()]
     # drop blank lines and bare page numbers
@@ -58,13 +76,13 @@ def parse_pdf(path: Path) -> list[Section]:
     title, buf = "Front matter", []
     for line in _extract_lines(path):
         if _is_heading(line):
-            if (s := _make_section(title, buf)):
+            if s := _make_section(title, buf):
                 sections.append(s)
             title, buf = _heading_title(line), []
             if title.lower() in STOP_HEADINGS:
                 return sections
         else:
             buf.append(line)
-    if (s := _make_section(title, buf)):
+    if s := _make_section(title, buf):
         sections.append(s)
     return sections
