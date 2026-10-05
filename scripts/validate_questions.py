@@ -12,7 +12,7 @@ from papertrail.config import get_settings
 
 QUESTIONS = Path("evaluation/questions.jsonl")
 CORPUS = Path("evaluation/corpus.txt")
-TYPES = {"numeric", "acronym", "method", "comparison", "definition"}
+TYPES = {"numeric", "acronym", "method", "comparison", "definition", "finding"}
 FIELDS = ("id", "question", "arxiv_id", "evidence", "type")
 
 SQL = r"""
