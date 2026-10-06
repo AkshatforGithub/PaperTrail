@@ -1,0 +1,495 @@
+{
+  "name": "v1",
+  "retriever": "hybrid_rerank",
+  "summary": {
+    "questions": 30,
+    "abstain_rate": 0.06666666666666665,
+    "faithfulness": 0.9655172413793104,
+    "uncited_sentence_rate": 0.0,
+    "fully_verified_answers": 0.9642857142857143
+  },
+  "rows": [
+    {
+      "id": "q055",
+      "question": "What is the fourth recurring pattern identified in the Common Failure Pattern Analysis?",
+      "answer": "The fourth recurring pattern is \u201cerroneous option names,\u201d where singular\u2013plural confusion leads to incorrect variants such as --symlink vs. --symlinks [1].",
+      "verified": true,
+      "score": {
+        "abstained": false,
+        "total_sentences": 1,
+        "cited_sentences": 1,
+        "supported_sentences": 1,
+        "uncited_sentences": 0,
+        "invalid_citations": 0,
+        "unsupported": [],
+        "faithfulness": 1.0
+      }
+    },
+    {
+      "id": "q025",
+      "question": "How many fields are shared across all branches?",
+      "answer": "All branches share five fields: id, modality, context, question, and choices [1].",
+      "verified": true,
+      "score": {
+        "abstained": false,
+        "total_sentences": 1,
+        "cited_sentences": 1,
+        "supported_sentences": 1,
+        "uncited_sentences": 0,
+        "invalid_citations": 0,
+        "unsupported": [],
+        "faithfulness": 1.0
+      }
+    },
+    {
+      "id": "q068",
+      "question": "Which signal is identified as the early dissenting signal in the shallow layers?",
+      "answer": "France is identified as the early dissenting signal in the shallow layers [1].",
+      "verified": true,
+      "score": {
+        "abstained": false,
+        "total_sentences": 1,
+        "cited_sentences": 1,
+        "supported_sentences": 1,
+        "uncited_sentences": 0,
+        "invalid_citations": 0,
+        "unsupported": [],
+        "faithfulness": 1.0
+      }
+    },
+    {
+      "id": "q032",
+      "question": "What value was set for RProb?",
+      "answer": "I can't find this in the indexed papers.",
+      "verified": true,
+      "score": {
+        "abstained": true,
+        "total_sentences": 0,
+        "cited_sentences": 0,
+        "supported_sentences": 0,
+        "uncited_sentences": 0,
+        "invalid_citations": 0,
+        "unsupported": [],
+        "faithfulness": null
+      }
+    },
+    {
+      "id": "q065",
+      "question": "What rank is the PiSSA-initialized adapter used for measuring gradient alignment?",
+      "answer": "The gradient-alignment probe uses a PiSSA-initialized adapter of rank 64 [1][2].",
+      "verified": true,
+      "score": {
+        "abstained": false,
+        "total_sentences": 1,
+        "cited_sentences": 1,
+        "supported_sentences": 1,
+        "uncited_sentences": 0,
+        "invalid_citations": 0,
+        "unsupported": [],
+        "faithfulness": 1.0
+      }
+    },
+    {
+      "id": "q062",
+      "question": "How many next-token predictions does each profile generate per block?",
+      "answer": "Each profile generates 4,608 next-token predictions per block [1].",
+      "verified": true,
+      "score": {
+        "abstained": false,
+        "total_sentences": 1,
+        "cited_sentences": 1,
+        "supported_sentences": 1,
+        "uncited_sentences": 0,
+        "invalid_citations": 0,
+        "unsupported": [],
+        "faithfulness": 1.0
+      }
+    },
+    {
+      "id": "q045",
+      "question": "What does Mem++ do with superseded statements?",
+      "answer": "Mem++ marks superseded statements with a date instead of deleting them, keeping every version available in the store for later read-time selection [1][2][3].",
+      "verified": true,
+      "score": {
+        "abstained": false,
+        "total_sentences": 1,
+        "cited_sentences": 1,
+        "supported_sentences": 1,
+        "uncited_sentences": 0,
+        "invalid_citations": 0,
+        "unsupported": [],
+        "faithfulness": 1.0
+      }
+    },
+    {
+      "id": "q002",
+      "question": "By what factor does perplexity increase for RN when all six blocks are reduced at t = 4?",
+      "answer": "The study reports that when precision is reduced in all six blocks at t = 4, RN\u2019s perplexity grows by a factor of 22.7 relative to the full-precision baseline[1].",
+      "verified": true,
+      "score": {
+        "abstained": false,
+        "total_sentences": 1,
+        "cited_sentences": 1,
+        "supported_sentences": 1,
+        "uncited_sentences": 0,
+        "invalid_citations": 0,
+        "unsupported": [],
+        "faithfulness": 1.0
+      }
+    },
+    {
+      "id": "q040",
+      "question": "How many tasks are included in WebArena Lite?",
+      "answer": "WebArena Lite includes 165 tasks [1][2].",
+      "verified": true,
+      "score": {
+        "abstained": false,
+        "total_sentences": 1,
+        "cited_sentences": 1,
+        "supported_sentences": 1,
+        "uncited_sentences": 0,
+        "invalid_citations": 0,
+        "unsupported": [],
+        "faithfulness": 1.0
+      }
+    },
+    {
+      "id": "q024",
+      "question": "What are the three methods used to recover accuracy in quantization?",
+      "answer": "The paper identifies three techniques for recovering accuracy in quantization: scaling factors, low-rank adaptation, and sliding-window reconstruction [2].",
+      "verified": true,
+      "score": {
+        "abstained": false,
+        "total_sentences": 1,
+        "cited_sentences": 1,
+        "supported_sentences": 0,
+        "uncited_sentences": 0,
+        "invalid_citations": 0,
+        "unsupported": [
+          "The paper identifies three techniques for recovering accuracy in quantization: scaling factors, low-rank adaptation, and sliding-window reconstruction [2]."
+        ],
+        "faithfulness": 0.0
+      }
+    },
+    {
+      "id": "q006",
+      "question": "Which types of content are excluded from the current release of the BanglaDial-Abuse dataset?",
+      "answer": "The current release contains no missing values and no exact duplicate rows, meaning those types of content are excluded from BanglaDial-Abuse [2].",
+      "verified": true,
+      "score": {
+        "abstained": false,
+        "total_sentences": 1,
+        "cited_sentences": 1,
+        "supported_sentences": 1,
+        "uncited_sentences": 0,
+        "invalid_citations": 0,
+        "unsupported": [],
+        "faithfulness": 1.0
+      }
+    },
+    {
+      "id": "q018",
+      "question": "How many English benchmarks are evaluated?",
+      "answer": "The studies evaluate on eleven English benchmarks [1][4].",
+      "verified": true,
+      "score": {
+        "abstained": false,
+        "total_sentences": 1,
+        "cited_sentences": 1,
+        "supported_sentences": 1,
+        "uncited_sentences": 0,
+        "invalid_citations": 0,
+        "unsupported": [],
+        "faithfulness": 1.0
+      }
+    },
+    {
+      "id": "q014",
+      "question": "How many times is each method run for each SMB?",
+      "answer": "I can't find this in the indexed papers.",
+      "verified": true,
+      "score": {
+        "abstained": true,
+        "total_sentences": 0,
+        "cited_sentences": 0,
+        "supported_sentences": 0,
+        "uncited_sentences": 0,
+        "invalid_citations": 0,
+        "unsupported": [],
+        "faithfulness": null
+      }
+    },
+    {
+      "id": "q034",
+      "question": "What is the Reasoning retention when T2T masking is raised to 40%?",
+      "answer": "The Reasoning retention drops to 97.1% when T2T masking is raised to 40%[1].",
+      "verified": true,
+      "score": {
+        "abstained": false,
+        "total_sentences": 1,
+        "cited_sentences": 1,
+        "supported_sentences": 1,
+        "uncited_sentences": 0,
+        "invalid_citations": 0,
+        "unsupported": [],
+        "faithfulness": 1.0
+      }
+    },
+    {
+      "id": "q041",
+      "question": "What is Acmite's average score across ARC-Challenge, GSM8K, and PIQA on Phi-4-mini?",
+      "answer": "Acmite achieves an average of 73.24 across ARC-Challenge, GSM8K and PIQA on Phi-4-mini[1][3].",
+      "verified": true,
+      "score": {
+        "abstained": false,
+        "total_sentences": 1,
+        "cited_sentences": 1,
+        "supported_sentences": 1,
+        "uncited_sentences": 0,
+        "invalid_citations": 0,
+        "unsupported": [],
+        "faithfulness": 1.0
+      }
+    },
+    {
+      "id": "q060",
+      "question": "What is the measured performance of the repaired 1B model on the pure suppression cell compared to the 600M model?",
+      "answer": "The repaired 1B model achieves a 0.604 success rate on pure suppression items, while the 600M model achieves only 0.354 on the same items [4].",
+      "verified": true,
+      "score": {
+        "abstained": false,
+        "total_sentences": 1,
+        "cited_sentences": 1,
+        "supported_sentences": 1,
+        "uncited_sentences": 0,
+        "invalid_citations": 0,
+        "unsupported": [],
+        "faithfulness": 1.0
+      }
+    },
+    {
+      "id": "q035",
+      "question": "By how many percentage points does HEADEDIT's over-refusal accuracy for Gemma fall short of the best result?",
+      "answer": "HEADEDIT\u2019s over-refusal accuracy for Gemma is 0.3 percentage points lower than the best result [1].",
+      "verified": true,
+      "score": {
+        "abstained": false,
+        "total_sentences": 1,
+        "cited_sentences": 1,
+        "supported_sentences": 1,
+        "uncited_sentences": 0,
+        "invalid_citations": 0,
+        "unsupported": [],
+        "faithfulness": 1.0
+      }
+    },
+    {
+      "id": "q010",
+      "question": "By how many percentage points does INFLOWOP with a dynamic cost matrix outperform the static matrix counterpart on Qwen3.5-4B?",
+      "answer": "INFLOWOP with a dynamic cost matrix outperforms the static matrix counterpart by +3.15 percentage points on Qwen3.5-4B[1].",
+      "verified": true,
+      "score": {
+        "abstained": false,
+        "total_sentences": 1,
+        "cited_sentences": 1,
+        "supported_sentences": 1,
+        "uncited_sentences": 0,
+        "invalid_citations": 0,
+        "unsupported": [],
+        "faithfulness": 1.0
+      }
+    },
+    {
+      "id": "q047",
+      "question": "What type of research progress do current AI systems mainly accelerate?",
+      "answer": "Current AI systems for research mainly accelerate progress on an already well-defined subproblem[1].",
+      "verified": true,
+      "score": {
+        "abstained": false,
+        "total_sentences": 1,
+        "cited_sentences": 1,
+        "supported_sentences": 1,
+        "uncited_sentences": 0,
+        "invalid_citations": 0,
+        "unsupported": [],
+        "faithfulness": 1.0
+      }
+    },
+    {
+      "id": "q001",
+      "question": "How many perturbations per sample were used to configure SHAP and LIME?",
+      "answer": "The SHAP and LIME explainers were each run with a fixed budget of 1,000 perturbations per sample[1][2].",
+      "verified": true,
+      "score": {
+        "abstained": false,
+        "total_sentences": 1,
+        "cited_sentences": 1,
+        "supported_sentences": 1,
+        "uncited_sentences": 0,
+        "invalid_citations": 0,
+        "unsupported": [],
+        "faithfulness": 1.0
+      }
+    },
+    {
+      "id": "q050",
+      "question": "How many AI-generated introductions were produced in total?",
+      "answer": "A total of 608 AI-generated introductions were produced in the study [2].",
+      "verified": true,
+      "score": {
+        "abstained": false,
+        "total_sentences": 1,
+        "cited_sentences": 1,
+        "supported_sentences": 1,
+        "uncited_sentences": 0,
+        "invalid_citations": 0,
+        "unsupported": [],
+        "faithfulness": 1.0
+      }
+    },
+    {
+      "id": "q044",
+      "question": "How many effective hypotheses do the baseline methods produce before their performance declines?",
+      "answer": "The baselines generate only about 5\u201310 effective hypotheses before their adjusted R\u00b2 starts to drop, indicating that additional hypotheses add noise rather than signal [1].",
+      "verified": true,
+      "score": {
+        "abstained": false,
+        "total_sentences": 1,
+        "cited_sentences": 1,
+        "supported_sentences": 1,
+        "uncited_sentences": 0,
+        "invalid_citations": 0,
+        "unsupported": [],
+        "faithfulness": 1.0
+      }
+    },
+    {
+      "id": "q021",
+      "question": "What is the peak learning rate used in the first stage of the set generator training?",
+      "answer": "The set generator\u2019s first training stage uses a peak learning rate of 10\u207b\u00b3[1].",
+      "verified": true,
+      "score": {
+        "abstained": false,
+        "total_sentences": 1,
+        "cited_sentences": 1,
+        "supported_sentences": 1,
+        "uncited_sentences": 0,
+        "invalid_citations": 0,
+        "unsupported": [],
+        "faithfulness": 1.0
+      }
+    },
+    {
+      "id": "q015",
+      "question": "What proportion of defects does GPT-4.1 catch on the design set?",
+      "answer": "GPT-4.1 catches 91 % of defects on the design set [1].",
+      "verified": true,
+      "score": {
+        "abstained": false,
+        "total_sentences": 1,
+        "cited_sentences": 1,
+        "supported_sentences": 1,
+        "uncited_sentences": 0,
+        "invalid_citations": 0,
+        "unsupported": [],
+        "faithfulness": 1.0
+      }
+    },
+    {
+      "id": "q009",
+      "question": "What is the mean \u02c6HK value selected by TTR@500-filtering?",
+      "answer": "The mean \u02c6HK value for the documents selected by TTR@500-filtering is 3.37 [1].",
+      "verified": true,
+      "score": {
+        "abstained": false,
+        "total_sentences": 1,
+        "cited_sentences": 1,
+        "supported_sentences": 1,
+        "uncited_sentences": 0,
+        "invalid_citations": 0,
+        "unsupported": [],
+        "faithfulness": 1.0
+      }
+    },
+    {
+      "id": "q064",
+      "question": "What is the acceptance ratio when the new candidate x is not in C?",
+      "answer": "When the new candidate x lies outside C, the Metropolis-Hastings acceptance ratio defaults to 0 [1].",
+      "verified": true,
+      "score": {
+        "abstained": false,
+        "total_sentences": 1,
+        "cited_sentences": 1,
+        "supported_sentences": 1,
+        "uncited_sentences": 0,
+        "invalid_citations": 0,
+        "unsupported": [],
+        "faithfulness": 1.0
+      }
+    },
+    {
+      "id": "q020",
+      "question": "What decision does CARM make about a response?",
+      "answer": "CARM decides whether to retain (accept) or discard an entire sampled response by applying a response-level off-policy mask that determines if the whole response should be kept for the PPO/GRPO update[2]. This decision is made by aggregating the absolute token log-ratios, rather than signed ones, to measure bidirectional drift and enforce a token-level interpretation of the threshold[1][3].",
+      "verified": true,
+      "score": {
+        "abstained": false,
+        "total_sentences": 2,
+        "cited_sentences": 2,
+        "supported_sentences": 2,
+        "uncited_sentences": 0,
+        "invalid_citations": 0,
+        "unsupported": [],
+        "faithfulness": 1.0
+      }
+    },
+    {
+      "id": "q036",
+      "question": "How many points do BM25 and LateOn trail on CoreQ?",
+      "answer": "BM25 and LateOn trail by 15\u201316 points on CoreQ[1][2].",
+      "verified": true,
+      "score": {
+        "abstained": false,
+        "total_sentences": 1,
+        "cited_sentences": 1,
+        "supported_sentences": 1,
+        "uncited_sentences": 0,
+        "invalid_citations": 0,
+        "unsupported": [],
+        "faithfulness": 1.0
+      }
+    },
+    {
+      "id": "q005",
+      "question": "What type of environment do agents work in?",
+      "answer": "Agents operate within a persistent workspace that includes the repository checkout together with its execution environment, holding artifacts such as repository files, patches, and tool outputs[1].",
+      "verified": true,
+      "score": {
+        "abstained": false,
+        "total_sentences": 1,
+        "cited_sentences": 1,
+        "supported_sentences": 1,
+        "uncited_sentences": 0,
+        "invalid_citations": 0,
+        "unsupported": [],
+        "faithfulness": 1.0
+      }
+    },
+    {
+      "id": "q008",
+      "question": "Which speculative decoding approach is especially effective for code generation?",
+      "answer": "Retrieval-based speculative decoding is highlighted as particularly effective for code generation[1].",
+      "verified": true,
+      "score": {
+        "abstained": false,
+        "total_sentences": 1,
+        "cited_sentences": 1,
+        "supported_sentences": 1,
+        "uncited_sentences": 0,
+        "invalid_citations": 0,
+        "unsupported": [],
+        "faithfulness": 1.0
+      }
+    }
+  ]
+}

@@ -1,0 +1,173 @@
+{
+  "name": "smoke",
+  "retriever": "hybrid_rerank",
+  "summary": {
+    "questions": 10,
+    "abstain_rate": 0.09999999999999998,
+    "faithfulness": 1.0,
+    "uncited_sentence_rate": 0.4,
+    "fully_verified_answers": 0.6666666666666666
+  },
+  "rows": [
+    {
+      "id": "q055",
+      "question": "What is the fourth recurring pattern identified in the Common Failure Pattern Analysis?",
+      "answer": "The fourth recurring pattern is \u201cerroneous option names,\u201d where models produce incorrect variants of flags (e.g., confusing singular\u2011plural forms such as\u202f--symlink vs.\u202f--symlinks)\u30101\u3011.",
+      "verified": false,
+      "score": {
+        "abstained": false,
+        "total_sentences": 2,
+        "cited_sentences": 0,
+        "supported_sentences": 0,
+        "uncited_sentences": 2,
+        "invalid_citations": 0,
+        "unsupported": [],
+        "faithfulness": null
+      }
+    },
+    {
+      "id": "q025",
+      "question": "How many fields are shared across all branches?",
+      "answer": "All branches share five fields: id, modality, context, question, and choices [1].",
+      "verified": true,
+      "score": {
+        "abstained": false,
+        "total_sentences": 1,
+        "cited_sentences": 1,
+        "supported_sentences": 1,
+        "uncited_sentences": 0,
+        "invalid_citations": 0,
+        "unsupported": [],
+        "faithfulness": 1.0
+      }
+    },
+    {
+      "id": "q068",
+      "question": "Which signal is identified as the early dissenting signal in the shallow layers?",
+      "answer": "France is identified as the early dissenting signal in the shallow layers [1].",
+      "verified": true,
+      "score": {
+        "abstained": false,
+        "total_sentences": 1,
+        "cited_sentences": 1,
+        "supported_sentences": 1,
+        "uncited_sentences": 0,
+        "invalid_citations": 0,
+        "unsupported": [],
+        "faithfulness": 1.0
+      }
+    },
+    {
+      "id": "q032",
+      "question": "What value was set for RProb?",
+      "answer": "I can't find this in the indexed papers.",
+      "verified": true,
+      "score": {
+        "abstained": true,
+        "total_sentences": 0,
+        "cited_sentences": 0,
+        "supported_sentences": 0,
+        "uncited_sentences": 0,
+        "invalid_citations": 0,
+        "unsupported": [],
+        "faithfulness": null
+      }
+    },
+    {
+      "id": "q065",
+      "question": "What rank is the PiSSA-initialized adapter used for measuring gradient alignment?",
+      "answer": "The gradient\u2011alignment probe uses a PiSSA\u2011initialized adapter of rank\u202f64\u202f[1][2].",
+      "verified": true,
+      "score": {
+        "abstained": false,
+        "total_sentences": 1,
+        "cited_sentences": 1,
+        "supported_sentences": 1,
+        "uncited_sentences": 0,
+        "invalid_citations": 0,
+        "unsupported": [],
+        "faithfulness": 1.0
+      }
+    },
+    {
+      "id": "q062",
+      "question": "How many next-token predictions does each profile generate per block?",
+      "answer": "Each profile generates\u202f4,608\u202fnext\u2011token predictions per block\u202f[1].",
+      "verified": true,
+      "score": {
+        "abstained": false,
+        "total_sentences": 1,
+        "cited_sentences": 1,
+        "supported_sentences": 1,
+        "uncited_sentences": 0,
+        "invalid_citations": 0,
+        "unsupported": [],
+        "faithfulness": 1.0
+      }
+    },
+    {
+      "id": "q045",
+      "question": "What does Mem++ do with superseded statements?",
+      "answer": "Mem++ marks superseded statements with a date instead of deleting them, keeping every version available in the store for later read\u2011time selection\u30101\u2020L2-L4\u3011\u30103\u2020L5-L8\u3011.",
+      "verified": false,
+      "score": {
+        "abstained": false,
+        "total_sentences": 1,
+        "cited_sentences": 0,
+        "supported_sentences": 0,
+        "uncited_sentences": 1,
+        "invalid_citations": 0,
+        "unsupported": [],
+        "faithfulness": null
+      }
+    },
+    {
+      "id": "q002",
+      "question": "By what factor does perplexity increase for RN when all six blocks are reduced at t = 4?",
+      "answer": "When all six blocks are reduced at\u202ft\u202f=\u202f4, the RN perplexity grows by a factor of\u202f22.7\u202frelative to the full\u2011precision baseline\u30101\u3011.",
+      "verified": false,
+      "score": {
+        "abstained": false,
+        "total_sentences": 1,
+        "cited_sentences": 0,
+        "supported_sentences": 0,
+        "uncited_sentences": 1,
+        "invalid_citations": 0,
+        "unsupported": [],
+        "faithfulness": null
+      }
+    },
+    {
+      "id": "q040",
+      "question": "How many tasks are included in WebArena Lite?",
+      "answer": "WebArena Lite contains 165 tasks\u202f[1][2]",
+      "verified": true,
+      "score": {
+        "abstained": false,
+        "total_sentences": 1,
+        "cited_sentences": 1,
+        "supported_sentences": 1,
+        "uncited_sentences": 0,
+        "invalid_citations": 0,
+        "unsupported": [],
+        "faithfulness": 1.0
+      }
+    },
+    {
+      "id": "q024",
+      "question": "What are the three methods used to recover accuracy in quantization?",
+      "answer": "The paper identifies three techniques for recovering accuracy in quantization: scaling, low\u2011rank adaptation, and sliding\u2011window reconstruction\u202f[2].",
+      "verified": true,
+      "score": {
+        "abstained": false,
+        "total_sentences": 1,
+        "cited_sentences": 1,
+        "supported_sentences": 1,
+        "uncited_sentences": 0,
+        "invalid_citations": 0,
+        "unsupported": [],
+        "faithfulness": 1.0
+      }
+    }
+  ]
+}
