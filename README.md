@@ -8,22 +8,7 @@ Top-5 chunk recall rose from **68.6% to 87.1%** (MRR@10 from 0.535 to 0.812) on 
 
 ## Architecture
 
-```mermaid
-flowchart LR
-    A[arXiv papers] --> B[Fetch and parse<br/>PyMuPDF]
-    B --> C[Sentence-aware chunking<br/>800 chars, 100 overlap]
-    C --> D[(Postgres 16 + pgvector<br/>HNSW cosine + tsvector GIN)]
-    Q[Question] --> E[Vector search<br/>bge-small-en-v1.5]
-    Q --> F[Full-text search<br/>ts_rank_cd]
-    D --> E
-    D --> F
-    E --> G[Reciprocal rank fusion<br/>k=60, 50 candidates each]
-    F --> G
-    G --> H[Cross-encoder rerank<br/>top 30 -> top 5]
-    H --> I[LLM answer<br/>numbered sources, [n] citations]
-    I --> J[Structural check<br/>+ optional LLM judge]
-    J --> K[FastAPI /ask]
-```
+
 
 - **Corpus:** 100 cs.CL arXiv papers, frozen in `evaluation/corpus.txt`; 6,084 chunks. Chunks never cross section boundaries, references are cut, and the abstract is stored as chunk 0.
 - **Embeddings:** `BAAI/bge-small-en-v1.5` (384-dim, normalized, with the query prefix on questions).
