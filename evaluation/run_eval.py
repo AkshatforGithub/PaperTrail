@@ -21,7 +21,7 @@ from pathlib import Path
 import psycopg
 
 from papertrail.config import get_settings
-from papertrail.retrieval.vector_search import vector_search
+from papertrail.retrieval.registry import RETRIEVERS
 
 QUESTIONS = Path("evaluation/questions.jsonl")
 RESULTS = Path("evaluation/results")
@@ -31,7 +31,6 @@ DEV_SIZE = 20
 SPLIT_SEED = 13
 
 # Phase 6 adds more retrievers here: every entry is f(question, k, conn) -> list[chunk].
-RETRIEVERS = {"vector": vector_search}
 
 TRANS = str.maketrans(
     {

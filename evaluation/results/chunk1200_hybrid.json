@@ -1,0 +1,813 @@
+{
+  "name": "chunk1200_hybrid",
+  "retriever": "hybrid",
+  "created": "2026-10-05T14:46:04+00:00",
+  "git_commit": "1f0966e",
+  "config": {
+    "embedding_model": "BAAI/bge-small-en-v1.5",
+    "chunk_size": 1200,
+    "chunk_overlap": 150
+  },
+  "split": {
+    "seed": 13,
+    "dev_size": 20
+  },
+  "summary": {
+    "chunk": {
+      "all": {
+        "n": 70,
+        "recall@1": 0.5,
+        "recall@3": 0.6714285714285714,
+        "recall@5": 0.7285714285714285,
+        "recall@10": 0.8571428571428571,
+        "mrr@10": 0.6088492063492064
+      },
+      "dev": {
+        "n": 20,
+        "recall@1": 0.6,
+        "recall@3": 0.9,
+        "recall@5": 0.9,
+        "recall@10": 0.95,
+        "mrr@10": 0.73125
+      },
+      "test": {
+        "n": 50,
+        "recall@1": 0.46,
+        "recall@3": 0.58,
+        "recall@5": 0.66,
+        "recall@10": 0.82,
+        "mrr@10": 0.5598888888888889
+      }
+    },
+    "paper": {
+      "all": {
+        "n": 70,
+        "recall@1": 0.7571428571428571,
+        "recall@3": 0.8714285714285714,
+        "recall@5": 0.9,
+        "recall@10": 0.9285714285714286,
+        "mrr@10": 0.8151587301587302
+      },
+      "dev": {
+        "n": 20,
+        "recall@1": 0.95,
+        "recall@3": 1.0,
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr@10": 0.9666666666666666
+      },
+      "test": {
+        "n": 50,
+        "recall@1": 0.68,
+        "recall@3": 0.82,
+        "recall@5": 0.86,
+        "recall@10": 0.9,
+        "mrr@10": 0.7545555555555555
+      }
+    }
+  },
+  "by_type_chunk": {
+    "comparison": {
+      "n": 3,
+      "recall@1": 1.0,
+      "recall@3": 1.0,
+      "recall@5": 1.0,
+      "recall@10": 1.0,
+      "mrr@10": 1.0
+    },
+    "definition": {
+      "n": 9,
+      "recall@1": 0.6666666666666666,
+      "recall@3": 0.6666666666666666,
+      "recall@5": 0.6666666666666666,
+      "recall@10": 0.7777777777777778,
+      "mrr@10": 0.6805555555555556
+    },
+    "finding": {
+      "n": 7,
+      "recall@1": 0.5714285714285714,
+      "recall@3": 0.7142857142857143,
+      "recall@5": 0.7142857142857143,
+      "recall@10": 0.8571428571428571,
+      "mrr@10": 0.6666666666666667
+    },
+    "method": {
+      "n": 12,
+      "recall@1": 0.3333333333333333,
+      "recall@3": 0.6666666666666666,
+      "recall@5": 0.75,
+      "recall@10": 0.8333333333333334,
+      "mrr@10": 0.5208333333333334
+    },
+    "numeric": {
+      "n": 39,
+      "recall@1": 0.46153846153846156,
+      "recall@3": 0.6410256410256411,
+      "recall@5": 0.717948717948718,
+      "recall@10": 0.8717948717948718,
+      "mrr@10": 0.5789173789173789
+    }
+  },
+  "per_question": [
+    {
+      "id": "q001",
+      "type": "numeric",
+      "split": "test",
+      "arxiv_id": "2610.02116",
+      "question": "How many perturbations per sample were used to configure SHAP and LIME?",
+      "paper_rank": 1,
+      "chunk_rank": 1,
+      "latency_ms": 80.2
+    },
+    {
+      "id": "q002",
+      "type": "numeric",
+      "split": "test",
+      "arxiv_id": "2610.01889",
+      "question": "By what factor does perplexity increase for RN when all six blocks are reduced at t = 4?",
+      "paper_rank": 1,
+      "chunk_rank": 1,
+      "latency_ms": 50.5
+    },
+    {
+      "id": "q003",
+      "type": "method",
+      "split": "dev",
+      "arxiv_id": "2610.01511",
+      "question": "Which variant of DPO learns from unpaired feedback?",
+      "paper_rank": 1,
+      "chunk_rank": 1,
+      "latency_ms": 43.9
+    },
+    {
+      "id": "q004",
+      "type": "comparison",
+      "split": "dev",
+      "arxiv_id": "2610.01917",
+      "question": "What is the effect of increasing the latent count in latent visual reasoning?",
+      "paper_rank": 1,
+      "chunk_rank": 1,
+      "latency_ms": 53.0
+    },
+    {
+      "id": "q005",
+      "type": "method",
+      "split": "test",
+      "arxiv_id": "2610.02122",
+      "question": "What type of environment do agents work in?",
+      "paper_rank": null,
+      "chunk_rank": null,
+      "latency_ms": 46.8
+    },
+    {
+      "id": "q006",
+      "type": "definition",
+      "split": "test",
+      "arxiv_id": "2610.01150",
+      "question": "Which types of content are excluded from the current release of the BanglaDial-Abuse dataset?",
+      "paper_rank": 1,
+      "chunk_rank": 1,
+      "latency_ms": 52.0
+    },
+    {
+      "id": "q007",
+      "type": "numeric",
+      "split": "dev",
+      "arxiv_id": "2610.01492",
+      "question": "At what average frame rate does FlexiCodec maintain improved information preservation?",
+      "paper_rank": 1,
+      "chunk_rank": 2,
+      "latency_ms": 54.5
+    },
+    {
+      "id": "q008",
+      "type": "method",
+      "split": "test",
+      "arxiv_id": "2610.01108",
+      "question": "Which speculative decoding approach is especially effective for code generation?",
+      "paper_rank": 3,
+      "chunk_rank": null,
+      "latency_ms": 40.8
+    },
+    {
+      "id": "q009",
+      "type": "numeric",
+      "split": "test",
+      "arxiv_id": "2610.01493",
+      "question": "What is the mean \u02c6HK value selected by TTR@500-filtering?",
+      "paper_rank": 1,
+      "chunk_rank": 1,
+      "latency_ms": 39.0
+    },
+    {
+      "id": "q010",
+      "type": "numeric",
+      "split": "test",
+      "arxiv_id": "2610.01017",
+      "question": "By how many percentage points does INFLOWOP with a dynamic cost matrix outperform the static matrix counterpart on Qwen3.5-4B?",
+      "paper_rank": 1,
+      "chunk_rank": 2,
+      "latency_ms": 45.5
+    },
+    {
+      "id": "q011",
+      "type": "method",
+      "split": "dev",
+      "arxiv_id": "2610.01702",
+      "question": "What operation is performed on LoRA weights during task fingerprint generation?",
+      "paper_rank": 1,
+      "chunk_rank": 2,
+      "latency_ms": 46.8
+    },
+    {
+      "id": "q012",
+      "type": "numeric",
+      "split": "dev",
+      "arxiv_id": "2610.02001",
+      "question": "What is the mean wall-clock time for Mingbird?",
+      "paper_rank": 1,
+      "chunk_rank": 3,
+      "latency_ms": 32.3
+    },
+    {
+      "id": "q013",
+      "type": "definition",
+      "split": "dev",
+      "arxiv_id": "2610.01393",
+      "question": "What is the goal of the typed semantic link generation task?",
+      "paper_rank": 1,
+      "chunk_rank": 1,
+      "latency_ms": 41.1
+    },
+    {
+      "id": "q014",
+      "type": "numeric",
+      "split": "test",
+      "arxiv_id": "2610.00964",
+      "question": "How many times is each method run for each SMB?",
+      "paper_rank": 4,
+      "chunk_rank": 4,
+      "latency_ms": 34.7
+    },
+    {
+      "id": "q015",
+      "type": "numeric",
+      "split": "test",
+      "arxiv_id": "2610.01023",
+      "question": "What proportion of defects does GPT-4.1 catch on the design set?",
+      "paper_rank": 1,
+      "chunk_rank": null,
+      "latency_ms": 39.1
+    },
+    {
+      "id": "q016",
+      "type": "definition",
+      "split": "dev",
+      "arxiv_id": "2610.01082",
+      "question": "What is the name of the new dataset for Polish\u2013Silesian translation evaluation?",
+      "paper_rank": 1,
+      "chunk_rank": 8,
+      "latency_ms": 41.3
+    },
+    {
+      "id": "q017",
+      "type": "numeric",
+      "split": "test",
+      "arxiv_id": "2610.01450",
+      "question": "What is the number of trainable parameters for the hard-target model?",
+      "paper_rank": 1,
+      "chunk_rank": null,
+      "latency_ms": 45.9
+    },
+    {
+      "id": "q018",
+      "type": "numeric",
+      "split": "test",
+      "arxiv_id": "2610.01127",
+      "question": "How many English benchmarks are evaluated?",
+      "paper_rank": 5,
+      "chunk_rank": 5,
+      "latency_ms": 35.1
+    },
+    {
+      "id": "q019",
+      "type": "numeric",
+      "split": "test",
+      "arxiv_id": "2610.01688",
+      "question": "What was the prediction accuracy for two-character words on the test data?",
+      "paper_rank": 1,
+      "chunk_rank": 4,
+      "latency_ms": 47.9
+    },
+    {
+      "id": "q020",
+      "type": "method",
+      "split": "test",
+      "arxiv_id": "2610.02039",
+      "question": "What decision does CARM make about a response?",
+      "paper_rank": 2,
+      "chunk_rank": 4,
+      "latency_ms": 31.7
+    },
+    {
+      "id": "q021",
+      "type": "numeric",
+      "split": "test",
+      "arxiv_id": "2610.01450",
+      "question": "What is the peak learning rate used in the first stage of the set generator training?",
+      "paper_rank": 1,
+      "chunk_rank": 9,
+      "latency_ms": 61.5
+    },
+    {
+      "id": "q022",
+      "type": "numeric",
+      "split": "dev",
+      "arxiv_id": "2610.01324",
+      "question": "How many rows were present in both the cached corpus embeddings and the corpus?",
+      "paper_rank": 3,
+      "chunk_rank": 3,
+      "latency_ms": 34.6
+    },
+    {
+      "id": "q023",
+      "type": "finding",
+      "split": "test",
+      "arxiv_id": "2610.01257",
+      "question": "How many years of prior work are used to compute the mean embedding at i?",
+      "paper_rank": 1,
+      "chunk_rank": 1,
+      "latency_ms": 54.7
+    },
+    {
+      "id": "q024",
+      "type": "method",
+      "split": "test",
+      "arxiv_id": "2610.01889",
+      "question": "What are the three methods used to recover accuracy in quantization?",
+      "paper_rank": 6,
+      "chunk_rank": 6,
+      "latency_ms": 46.6
+    },
+    {
+      "id": "q025",
+      "type": "finding",
+      "split": "test",
+      "arxiv_id": "2610.01184",
+      "question": "How many fields are shared across all branches?",
+      "paper_rank": 1,
+      "chunk_rank": 1,
+      "latency_ms": 37.0
+    },
+    {
+      "id": "q026",
+      "type": "numeric",
+      "split": "test",
+      "arxiv_id": "2610.01592",
+      "question": "How many language models are included in the model collections used by ONLINE LLM PICKER?",
+      "paper_rank": 1,
+      "chunk_rank": 1,
+      "latency_ms": 63.4
+    },
+    {
+      "id": "q027",
+      "type": "method",
+      "split": "test",
+      "arxiv_id": "2610.01627",
+      "question": "Which types of benchmarks does the approach generate hypotheses for?",
+      "paper_rank": 1,
+      "chunk_rank": 2,
+      "latency_ms": 36.9
+    },
+    {
+      "id": "q028",
+      "type": "numeric",
+      "split": "test",
+      "arxiv_id": "2610.01017",
+      "question": "What accuracy percentages are achieved when applying all to profiles for the three backbones?",
+      "paper_rank": 2,
+      "chunk_rank": 2,
+      "latency_ms": 40.2
+    },
+    {
+      "id": "q029",
+      "type": "finding",
+      "split": "test",
+      "arxiv_id": "2610.01054",
+      "question": "How many LLMs were used in the experiments?",
+      "paper_rank": null,
+      "chunk_rank": null,
+      "latency_ms": 39.4
+    },
+    {
+      "id": "q030",
+      "type": "numeric",
+      "split": "test",
+      "arxiv_id": "2610.01278",
+      "question": "What percentage of all requests are cognitive assessments in SCOPE-AD?",
+      "paper_rank": 1,
+      "chunk_rank": 1,
+      "latency_ms": 31.6
+    },
+    {
+      "id": "q031",
+      "type": "finding",
+      "split": "dev",
+      "arxiv_id": "2610.01170",
+      "question": "How many behavioral domains were used to evaluate HEADEDIT?",
+      "paper_rank": 1,
+      "chunk_rank": 1,
+      "latency_ms": 46.5
+    },
+    {
+      "id": "q032",
+      "type": "numeric",
+      "split": "test",
+      "arxiv_id": "2610.01428",
+      "question": "What value was set for RProb?",
+      "paper_rank": null,
+      "chunk_rank": null,
+      "latency_ms": 32.1
+    },
+    {
+      "id": "q033",
+      "type": "method",
+      "split": "dev",
+      "arxiv_id": "2610.01921",
+      "question": "Which loss function does Liu & Niehues (2025) use for aligning middle layers?",
+      "paper_rank": 1,
+      "chunk_rank": 2,
+      "latency_ms": 51.0
+    },
+    {
+      "id": "q034",
+      "type": "numeric",
+      "split": "test",
+      "arxiv_id": "2610.01434",
+      "question": "What is the Reasoning retention when T2T masking is raised to 40%?",
+      "paper_rank": 1,
+      "chunk_rank": 2,
+      "latency_ms": 32.3
+    },
+    {
+      "id": "q035",
+      "type": "numeric",
+      "split": "test",
+      "arxiv_id": "2610.01170",
+      "question": "By how many percentage points does HEADEDIT's over-refusal accuracy for Gemma fall short of the best result?",
+      "paper_rank": 1,
+      "chunk_rank": 1,
+      "latency_ms": 50.3
+    },
+    {
+      "id": "q036",
+      "type": "numeric",
+      "split": "test",
+      "arxiv_id": "2610.02202",
+      "question": "How many points do BM25 and LateOn trail on CoreQ?",
+      "paper_rank": 9,
+      "chunk_rank": 9,
+      "latency_ms": 29.9
+    },
+    {
+      "id": "q037",
+      "type": "numeric",
+      "split": "test",
+      "arxiv_id": "2610.01821",
+      "question": "What is the median coverage of non-noise tokens observed across models?",
+      "paper_rank": 1,
+      "chunk_rank": 1,
+      "latency_ms": 57.0
+    },
+    {
+      "id": "q038",
+      "type": "finding",
+      "split": "test",
+      "arxiv_id": "2610.01026",
+      "question": "What proportion of failed runs does failure attribution identify the decisive step in?",
+      "paper_rank": 2,
+      "chunk_rank": 2,
+      "latency_ms": 43.3
+    },
+    {
+      "id": "q039",
+      "type": "definition",
+      "split": "test",
+      "arxiv_id": "2610.01345",
+      "question": "What labels does ARCCS reserve for evidence-backed cases?",
+      "paper_rank": 1,
+      "chunk_rank": 1,
+      "latency_ms": 34.6
+    },
+    {
+      "id": "q040",
+      "type": "numeric",
+      "split": "test",
+      "arxiv_id": "2610.01491",
+      "question": "How many tasks are included in WebArena Lite?",
+      "paper_rank": 1,
+      "chunk_rank": 1,
+      "latency_ms": 36.4
+    },
+    {
+      "id": "q041",
+      "type": "numeric",
+      "split": "test",
+      "arxiv_id": "2610.01696",
+      "question": "What is Acmite's average score across ARC-Challenge, GSM8K, and PIQA on Phi-4-mini?",
+      "paper_rank": 1,
+      "chunk_rank": 2,
+      "latency_ms": 50.8
+    },
+    {
+      "id": "q042",
+      "type": "finding",
+      "split": "test",
+      "arxiv_id": "2610.01492",
+      "question": "How many Transformer layers are used in each compressor of Q-SPT?",
+      "paper_rank": 1,
+      "chunk_rank": 6,
+      "latency_ms": 41.9
+    },
+    {
+      "id": "q043",
+      "type": "method",
+      "split": "dev",
+      "arxiv_id": "2610.01054",
+      "question": "What method is used for robust site ranking?",
+      "paper_rank": 1,
+      "chunk_rank": 1,
+      "latency_ms": 41.0
+    },
+    {
+      "id": "q044",
+      "type": "numeric",
+      "split": "test",
+      "arxiv_id": "2610.01627",
+      "question": "How many effective hypotheses do the baseline methods produce before their performance declines?",
+      "paper_rank": 1,
+      "chunk_rank": 1,
+      "latency_ms": 45.5
+    },
+    {
+      "id": "q045",
+      "type": "method",
+      "split": "test",
+      "arxiv_id": "2610.02002",
+      "question": "What does Mem++ do with superseded statements?",
+      "paper_rank": 1,
+      "chunk_rank": 1,
+      "latency_ms": 26.0
+    },
+    {
+      "id": "q046",
+      "type": "numeric",
+      "split": "dev",
+      "arxiv_id": "2610.01984",
+      "question": "By what percentage does MYTE-UBE reduce total base-symbol positions compared to MYTE?",
+      "paper_rank": 1,
+      "chunk_rank": 1,
+      "latency_ms": 46.3
+    },
+    {
+      "id": "q047",
+      "type": "definition",
+      "split": "test",
+      "arxiv_id": "2610.02202",
+      "question": "What type of research progress do current AI systems mainly accelerate?",
+      "paper_rank": 1,
+      "chunk_rank": 1,
+      "latency_ms": 38.5
+    },
+    {
+      "id": "q048",
+      "type": "numeric",
+      "split": "test",
+      "arxiv_id": "2610.01082",
+      "question": "How many lexical translation pairs are included in the system?",
+      "paper_rank": 1,
+      "chunk_rank": 1,
+      "latency_ms": 37.4
+    },
+    {
+      "id": "q049",
+      "type": "numeric",
+      "split": "dev",
+      "arxiv_id": "2610.01257",
+      "question": "After the selection\u2013impact trade-off, what is the mean number of citations by age three for accepted papers?",
+      "paper_rank": 1,
+      "chunk_rank": 1,
+      "latency_ms": 50.4
+    },
+    {
+      "id": "q050",
+      "type": "numeric",
+      "split": "test",
+      "arxiv_id": "2610.01353",
+      "question": "How many AI-generated introductions were produced in total?",
+      "paper_rank": 1,
+      "chunk_rank": 6,
+      "latency_ms": 38.2
+    },
+    {
+      "id": "q051",
+      "type": "numeric",
+      "split": "dev",
+      "arxiv_id": "2610.02206",
+      "question": "What is the size of the best-performing cybersecurity-tuned model used as the backbone?",
+      "paper_rank": 1,
+      "chunk_rank": 1,
+      "latency_ms": 58.2
+    },
+    {
+      "id": "q052",
+      "type": "numeric",
+      "split": "dev",
+      "arxiv_id": "2610.02140",
+      "question": "What test set accuracy does Qwen2.5-7B-Instruct and 0lmo-3-7B-Instruct achieve for Chemistry?",
+      "paper_rank": 1,
+      "chunk_rank": 1,
+      "latency_ms": 47.4
+    },
+    {
+      "id": "q053",
+      "type": "numeric",
+      "split": "test",
+      "arxiv_id": "2610.01016",
+      "question": "What nearest-neighbor range is marked by the disk for a candidate?",
+      "paper_rank": 2,
+      "chunk_rank": null,
+      "latency_ms": 29.9
+    },
+    {
+      "id": "q054",
+      "type": "definition",
+      "split": "test",
+      "arxiv_id": "2610.01428",
+      "question": "What does the radar plot in Figure 1 show?",
+      "paper_rank": null,
+      "chunk_rank": null,
+      "latency_ms": 34.6
+    },
+    {
+      "id": "q055",
+      "type": "definition",
+      "split": "test",
+      "arxiv_id": "2610.02206",
+      "question": "What is the fourth recurring pattern identified in the Common Failure Pattern Analysis?",
+      "paper_rank": null,
+      "chunk_rank": null,
+      "latency_ms": 37.8
+    },
+    {
+      "id": "q056",
+      "type": "method",
+      "split": "dev",
+      "arxiv_id": "2610.02150",
+      "question": "What is the name of the locally refined model produced by processing the guidance tasks?",
+      "paper_rank": 1,
+      "chunk_rank": 1,
+      "latency_ms": 53.4
+    },
+    {
+      "id": "q057",
+      "type": "numeric",
+      "split": "dev",
+      "arxiv_id": "2610.01316",
+      "question": "How many pairwise interactions are reported in Section 4.1?",
+      "paper_rank": 1,
+      "chunk_rank": null,
+      "latency_ms": 34.8
+    },
+    {
+      "id": "q058",
+      "type": "method",
+      "split": "dev",
+      "arxiv_id": "2610.02039",
+      "question": "What technique does CARM use to prevent cancellation?",
+      "paper_rank": 1,
+      "chunk_rank": 3,
+      "latency_ms": 37.0
+    },
+    {
+      "id": "q059",
+      "type": "numeric",
+      "split": "dev",
+      "arxiv_id": "2610.00958",
+      "question": "What is the IAR value reported for the omission condition?",
+      "paper_rank": 1,
+      "chunk_rank": 1,
+      "latency_ms": 34.6
+    },
+    {
+      "id": "q060",
+      "type": "comparison",
+      "split": "test",
+      "arxiv_id": "2610.02142",
+      "question": "What is the measured performance of the repaired 1B model on the pure suppression cell compared to the 600M model?",
+      "paper_rank": 1,
+      "chunk_rank": 1,
+      "latency_ms": 59.9
+    },
+    {
+      "id": "q061",
+      "type": "finding",
+      "split": "dev",
+      "arxiv_id": "2610.01353",
+      "question": "How many models were used to generate the introductions?",
+      "paper_rank": 1,
+      "chunk_rank": 1,
+      "latency_ms": 47.9
+    },
+    {
+      "id": "q062",
+      "type": "numeric",
+      "split": "test",
+      "arxiv_id": "2610.01165",
+      "question": "How many next-token predictions does each profile generate per block?",
+      "paper_rank": 1,
+      "chunk_rank": 1,
+      "latency_ms": 51.6
+    },
+    {
+      "id": "q063",
+      "type": "numeric",
+      "split": "test",
+      "arxiv_id": "2610.01471",
+      "question": "By what percentage did false positives increase during the second review round in the Diachronic CCR (D-CCR) test?",
+      "paper_rank": 1,
+      "chunk_rank": 1,
+      "latency_ms": 49.1
+    },
+    {
+      "id": "q064",
+      "type": "numeric",
+      "split": "test",
+      "arxiv_id": "2610.02140",
+      "question": "What is the acceptance ratio when the new candidate x is not in C?",
+      "paper_rank": 3,
+      "chunk_rank": 10,
+      "latency_ms": 30.0
+    },
+    {
+      "id": "q065",
+      "type": "numeric",
+      "split": "test",
+      "arxiv_id": "2610.01511",
+      "question": "What rank is the PiSSA-initialized adapter used for measuring gradient alignment?",
+      "paper_rank": 1,
+      "chunk_rank": 1,
+      "latency_ms": 49.6
+    },
+    {
+      "id": "q066",
+      "type": "numeric",
+      "split": "test",
+      "arxiv_id": "2610.01042",
+      "question": "How many events per correctness stratum were used for MedQA and GPQA-D?",
+      "paper_rank": 1,
+      "chunk_rank": 9,
+      "latency_ms": 49.5
+    },
+    {
+      "id": "q067",
+      "type": "definition",
+      "split": "test",
+      "arxiv_id": "2610.01026",
+      "question": "Which symbols denote the weighting coefficients in the signal for role \u03c1?",
+      "paper_rank": 1,
+      "chunk_rank": 1,
+      "latency_ms": 33.3
+    },
+    {
+      "id": "q068",
+      "type": "definition",
+      "split": "test",
+      "arxiv_id": "2610.01177",
+      "question": "Which signal is identified as the early dissenting signal in the shallow layers?",
+      "paper_rank": 1,
+      "chunk_rank": 1,
+      "latency_ms": 32.6
+    },
+    {
+      "id": "q069",
+      "type": "numeric",
+      "split": "test",
+      "arxiv_id": "2610.01345",
+      "question": "What is the number of instances in the judged GDPR sample?",
+      "paper_rank": 3,
+      "chunk_rank": 9,
+      "latency_ms": 32.2
+    },
+    {
+      "id": "q070",
+      "type": "comparison",
+      "split": "test",
+      "arxiv_id": "2610.01244",
+      "question": "What effect does early exposure to corrupted shared context have on performance?",
+      "paper_rank": 1,
+      "chunk_rank": 1,
+      "latency_ms": 42.8
+    }
+  ]
+}
