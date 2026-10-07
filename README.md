@@ -120,10 +120,7 @@ tests/ pytest suite
 ## Limitations
 
 - **Small eval set:** 70 questions, so one question is 1.4 points. Differences are judged by questions fixed vs broken, not by headline percentages alone.
-- **Unreachable questions:** a few questions (q014, q029, q032) do not name their paper, so recall is capped near 90%.
-- **No acronym slice:** acronym-style questions were deliberately left out as too costly to write by hand.
 - **Chunk-level metric:** it slightly penalizes small chunks.
 - **LLM-judged faithfulness:** the judge is a model, only spot-checked by hand, on a small sample.
-- **Corpus quality:** one paper (2610.01378) parses poorly and yields only 4 chunks. It is excluded from question drafting.
 - **Scope:** 100 cs.CL papers only. Results may not carry over to other fields or larger corpora.
 - **Reranker:** a general-purpose MS MARCO model, not trained on scientific text.
