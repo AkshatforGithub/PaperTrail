@@ -46,6 +46,28 @@ def judge_claim(claim: str, sources: list[tuple[int, RetrievedChunk]], model: st
         return False  # unparseable verdicts count as unsupported
 
 
+def _sentence_faithfulness(
+    sentence: str, sources: list["RetrievedChunk"], judge_model: str | None
+) -> dict:
+    """Compute per-sentence faithfulness: is_cited, is_supported, cited_sources."""
+    idxs = sorted({i for i in parse_citations(sentence) if 1 <= i <= len(sources)})
+    if not idxs:
+        return {
+            "sentence": sentence,
+            "is_cited": False,
+            "is_supported": None,
+            "cited_sources": [],
+        }
+    claim = CITE_RE.sub("", sentence).strip()
+    supported = judge_claim(claim, [(i, sources[i - 1]) for i in idxs], judge_model)
+    return {
+        "sentence": sentence,
+        "is_cited": True,
+        "is_supported": supported,
+        "cited_sources": idxs,
+    }
+
+
 def score_answer(answer: Answer, judge_model: str | None = None) -> dict:
     sentences = [] if answer.abstained else split_sentences(answer.text)
     result = {
@@ -56,17 +78,22 @@ def score_answer(answer: Answer, judge_model: str | None = None) -> dict:
         "uncited_sentences": len(answer.uncited_sentences),
         "invalid_citations": len(answer.invalid_citations),
         "unsupported": [],
+        "sentence_faithfulness": [],  # NEW: per-sentence flags
     }
     for sentence in sentences:
         idxs = sorted({i for i in parse_citations(sentence) if 1 <= i <= len(answer.sources)})
         if not idxs:
+            result["sentence_faithfulness"].append(
+                {"sentence": sentence, "is_cited": False, "is_supported": None, "cited_sources": []}
+            )
             continue
         result["cited_sentences"] += 1
-        claim = CITE_RE.sub("", sentence).strip()
-        if judge_claim(claim, [(i, answer.sources[i - 1]) for i in idxs], judge_model):
+        cf = _sentence_faithfulness(sentence, answer.sources, judge_model)
+        result["sentence_faithfulness"].append(cf)
+        if cf["is_supported"] is True:
             result["supported_sentences"] += 1
-        else:
-            result["unsupported"].append(sentence)
+        elif cf["is_supported"] is False:
+            result["unsupported"].append(cf["sentence"])
     cited = result["cited_sentences"]
     result["faithfulness"] = result["supported_sentences"] / cited if cited else None
     return result

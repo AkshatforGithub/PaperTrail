@@ -27,6 +27,7 @@ class Settings(BaseSettings):
     # LLM (Phase 7)
     groq_api_key: str = ""
     llm_model: str = ""
+    judge_model: str = ""  # faithfulness judge; empty = same as llm_model
 
     @property
     def database_url(self) -> str:

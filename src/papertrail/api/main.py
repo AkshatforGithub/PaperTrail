@@ -9,6 +9,7 @@ import psycopg
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel, Field
 
+from papertrail.config import get_settings
 from papertrail.generation.answer import answer_question
 from papertrail.generation.faithfulness import score_answer
 from papertrail.retrieval.registry import DEFAULT_RETRIEVER, RETRIEVERS
@@ -50,7 +51,8 @@ class AskResponse(BaseModel):
     cited: list[int]
     invalid_citations: list[int]
     uncited_sentences: list[str]
-    faithfulness: float | None = None  # only when verify=true
+    sentence_faithfulness: list[dict] | None = None  # per-sentence is_cited/is_supported flags
+    faithfulness: float | None = None  # only when verify=true; aggregate of supported/cited
     sources: list[SourceOut]
 
 
@@ -65,7 +67,13 @@ def ask(req: AskRequest) -> AskResponse:
         raise HTTPException(422, f"retriever must be one of {sorted(RETRIEVERS)}")
     try:
         result = answer_question(req.question, k=req.k, retriever=req.retriever)
-        faithfulness = score_answer(result)["faithfulness"] if req.verify else None
+        if req.verify:
+            faithfulness_data = score_answer(result, judge_model=get_settings().judge_model or None)
+            faithfulness = faithfulness_data["faithfulness"]
+            sentence_faithfulness = faithfulness_data.get("sentence_faithfulness", [])
+        else:
+            faithfulness = None
+            sentence_faithfulness = None  # not computed when verify=false
     except psycopg.OperationalError as exc:
         raise HTTPException(503, f"database unavailable: {exc}") from exc
     except (httpx.HTTPError, RuntimeError) as exc:
@@ -77,6 +85,7 @@ def ask(req: AskRequest) -> AskResponse:
         cited=result.cited,
         invalid_citations=result.invalid_citations,
         uncited_sentences=result.uncited_sentences,
+        sentence_faithfulness=sentence_faithfulness,
         faithfulness=faithfulness,
         sources=[
             SourceOut(
