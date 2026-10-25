@@ -1,5 +1,4 @@
 from functools import lru_cache
-
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
@@ -29,8 +28,16 @@ class Settings(BaseSettings):
     llm_model: str = ""
     judge_model: str = ""  # faithfulness judge; empty = same as llm_model
 
-    @property
-    def database_url(self) -> str:
+    # Computed database URL (filled in at initialization)
+    database_url: str = ""
+
+    # Guardrails
+    max_question_length: int = 500
+    daily_llm_call_cap: int = 100
+    spend_limit_usd: float = 10.0
+    cost_per_llm_call_usd: float = 0.001
+
+    def _compute_database_url(self) -> str:
         return (
             f"postgresql://{self.postgres_user}:{self.postgres_password}"
             f"@{self.postgres_host}:{self.postgres_port}/{self.postgres_db}"
@@ -39,4 +46,6 @@ class Settings(BaseSettings):
 
 @lru_cache
 def get_settings() -> Settings:
-    return Settings()
+    s = Settings()
+    s.database_url = s._compute_database_url()
+    return s

@@ -6,13 +6,20 @@ from contextlib import asynccontextmanager
 
 import httpx
 import psycopg
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Request
 from pydantic import BaseModel, Field
+
+from slowapi import Limiter
+from slowapi.util import get_remote_address
 
 from papertrail.config import get_settings
 from papertrail.generation.answer import answer_question
+from papertrail.generation.llm import GuardrailExceeded
 from papertrail.generation.faithfulness import score_answer
 from papertrail.retrieval.registry import DEFAULT_RETRIEVER, RETRIEVERS
+
+# Initialize limiter at module level (key_func uses client IP)
+limiter = Limiter(key_func=get_remote_address)
 
 
 @asynccontextmanager
@@ -21,6 +28,8 @@ async def lifespan(app: FastAPI):
         RETRIEVERS[DEFAULT_RETRIEVER]("warm up", k=1)
     except Exception:  # noqa: BLE001 - the API should still start if the DB is down
         pass
+    # Attach limiter to app state for potential middleware use
+    app.state.limiter = limiter
     yield
 
 
@@ -28,7 +37,7 @@ app = FastAPI(title="PaperTrail", version="0.1.0", lifespan=lifespan)
 
 
 class AskRequest(BaseModel):
-    question: str = Field(min_length=3, max_length=500)
+    question: str = Field(min_length=3, max_length=get_settings().max_question_length)
     k: int = Field(5, ge=1, le=10)
     retriever: str = DEFAULT_RETRIEVER
     verify: bool = False  # also run the LLM faithfulness judge (slower)
@@ -62,7 +71,8 @@ def health() -> dict:
 
 
 @app.post("/ask", response_model=AskResponse)
-def ask(req: AskRequest) -> AskResponse:
+@limiter.limit("10/minute")
+def ask(req: AskRequest, request: Request) -> AskResponse:
     if req.retriever not in RETRIEVERS:
         raise HTTPException(422, f"retriever must be one of {sorted(RETRIEVERS)}")
     try:
@@ -76,6 +86,8 @@ def ask(req: AskRequest) -> AskResponse:
             sentence_faithfulness = None  # not computed when verify=false
     except psycopg.OperationalError as exc:
         raise HTTPException(503, f"database unavailable: {exc}") from exc
+    except GuardrailExceeded as exc:
+        raise HTTPException(429, str(exc)) from exc
     except (httpx.HTTPError, RuntimeError) as exc:
         raise HTTPException(502, f"LLM request failed: {exc}") from exc
     return AskResponse(
