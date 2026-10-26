@@ -7,6 +7,9 @@ from contextlib import asynccontextmanager
 import httpx
 import psycopg
 from fastapi import FastAPI, HTTPException, Request
+from fastapi.responses import HTMLResponse
+from fastapi.staticfiles import StaticFiles
+from fastapi.templating import Jinja2Templates
 from pydantic import BaseModel, Field
 
 from slowapi import Limiter
@@ -21,6 +24,11 @@ from papertrail.retrieval.registry import DEFAULT_RETRIEVER, RETRIEVERS
 # Initialize limiter at module level (key_func uses client IP)
 limiter = Limiter(key_func=get_remote_address)
 
+# Templates and static files
+import os
+templates_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), "templates")
+templates = Jinja2Templates(directory=templates_dir)
+
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -34,6 +42,9 @@ async def lifespan(app: FastAPI):
 
 
 app = FastAPI(title="PaperTrail", version="0.1.0", lifespan=lifespan)
+
+# Mount static files directory for CSS/JS
+app.mount("/static", StaticFiles(directory="static"), name="static")
 
 
 class AskRequest(BaseModel):
@@ -68,6 +79,12 @@ class AskResponse(BaseModel):
 @app.get("/health")
 def health() -> dict:
     return {"status": "ok", "default_retriever": DEFAULT_RETRIEVER}
+
+
+@app.get("/", response_class=HTMLResponse)
+def index(request: Request) -> HTMLResponse:
+    """Serve the main frontend page."""
+    return templates.TemplateResponse(request, "index.html")
 
 
 @app.post("/ask", response_model=AskResponse)
