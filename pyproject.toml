@@ -8,6 +8,8 @@ version = "0.1.0"
 description = "Citation-verified RAG over arXiv CS papers, with an evaluation harness"
 requires-python = ">=3.11"
 dependencies = [
+    "slowapi>=0.1.9",
+    "jinja2>=3.1",
     "pydantic-settings>=2.2",
     "psycopg[binary,pool]>=3.1",
     "pgvector>=0.3",
